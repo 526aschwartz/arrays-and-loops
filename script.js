@@ -13,6 +13,11 @@ function render (html) {
 */
 function listFoods () {
   // code goes here
+  let output = ''
+  for(const food of foods){
+    output += `<p>${food} </p>`
+  }
+  render(output)
 }
 
 /* 
@@ -22,6 +27,13 @@ function listFoods () {
 */
 function numberedFoods () {
   // code goes here
+  let output = `<ol class="list-group list-group-numbered">`
+  for(let i=0; i < foods.length; i++){
+    output += `<li class="list-group-item">${foods[i]}</li>`
+  }
+  output += `</ol>`
+
+  render(output)
 }
 
 /* 
@@ -33,6 +45,23 @@ function numberedFoods () {
 */
 function filterFoods () {
   // code goes here
+  const letter = prompt('Pick a letter to filter the list by:')
+  if (!letter){
+    render(`<p class="text-muted m-0">No letter entered</p>`)
+    return
+  }
+
+  const lower = letter.toLowerCase()
+  const matches = foods.filter(f => f.toLowerCase().startsWith(lower))
+
+   if(matches.length === 0){
+    render(`<p class="m-0"> No foods found starting with '<strong>${letter}</strong>'</p>`)
+    return
+   }
+
+  const list = matches.map(item => `<li class="list-group-item">${item}</li>`).join('')
+ 
+  render(`<ul class="list-group">${list}</ul>`)
 }
 
 /* 
