@@ -113,6 +113,19 @@ function reverseList () {
 */
 function randomFoodPicker () {
   // TODO: Write your code here
+  const randomIndex = Math.floor(Math.random() * foods.length)
+  const pick = foods[randomIndex]
+
+  const card = `
+  <div class="card shadow text-center mx-auto" style="max-width: 18rem;">
+      <div class="card-header bg-primary text-white">Today's Pick</div>
+      <div class="card-body">
+        <h5 class="card-title">${pick}</h5>
+        <p class="card-text text-muted">Enjoy your ${pick.toLowerCase()}!</p>
+      </div>
+    </div>
+  `
+  render(card)
 }
 
 /* 
