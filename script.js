@@ -128,21 +128,11 @@ function randomFoodPicker () {
 */
 function wordLengths () {
   // TODO: Write your code here
-if (foods.length === 0) {
-    render(`<p class="text-danger">No foods in the list.</p>`)
-    return
+  let output = `<ul>`
+  for(const food of foods) {
+    output += `<li>${food} - ${food.length} letters</li>`
   }
-
-  let output = `<ul class="list-group">`
-
-  foods.forEach(food => {
-    const length = food.length
-    const label = length === 1 ? 'letter' : 'letters'
-    output += `<li class="list-group-item">${food} — ${length} ${label}</li>`
-  })
-
   output += `</ul>`
-
   render(output)
 }
 
