@@ -103,6 +103,9 @@ function uppercaseList () {
 */
 function reverseList () {
   // TODO: Write your code here
+  const reversed = [...foods].reverse()
+  const list = reversed.map(item => `<li class="list-group-item">${item}</li>`).join('')
+  render(`<ul class="list-group">${list}</ul>`)
 }
 
 /* 
@@ -125,19 +128,12 @@ function randomFoodPicker () {
 */
 function wordLengths () {
   // TODO: Write your code here
-    if (foods.length === 0) {
-    render(`<p class="text-danger">No foods in the list.</p>`)
-    return
+  let output = `<ul class="list-group>`
+  for (const food of foods) {
+    output += `li class="list-group-item">${food} - ${food.lenth}</li>`
   }
 
-  let output = `<ul class="list-group">`
-
-  foods.forEach(food => {
-    output += `<li class="list-group-item">${food} — ${food.length} letters</li>`
-  })
-
   output += `</ul>`
-
   render(output)
 }
 
