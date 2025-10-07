@@ -127,7 +127,7 @@ function wordLengths () {
   // TODO: Write your code here
   let output = `<ul class="list-group>`
   for (const food of foods) {
-    output += `li class="list-group-item">${food} - ${food.lenth}</li>`
+    output += `<li class="list-group-item">${food} - ${food.lenth}</li>`
   }
 
   output += `</ul>`
