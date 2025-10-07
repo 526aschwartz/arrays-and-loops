@@ -90,6 +90,9 @@ document.getElementById('btnForEach').addEventListener('click', forEachFoods)
 */
 function uppercaseList () {
   // TODO: Write your code here
+  const upperFoods= foods.map(food => food.toUpperCase())
+  const list = upperFoods.map(item => `<li class="list-group-item">${item}</li>`).join('')
+  render(`<ul class="list-group">${list}</ul>`)
 }
 
 /* 
